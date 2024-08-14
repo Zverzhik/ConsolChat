@@ -2,6 +2,7 @@ package zverzhik.consol.chat;
 
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -70,7 +71,7 @@ public class Server {
         }
     }
 
-    public synchronized void kickUser(ClientHandler sender, String message) {
+    public synchronized void kickUser(ClientHandler sender, String message) throws SQLException {
         String[] messageArray = message.split(" ", 2);
         if (messageArray.length != 2) {
             sender.sendMessage("Неверный формат! Используйте: /kick Имя пользователя");
